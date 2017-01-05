@@ -1,7 +1,7 @@
 - [BootBarn](#BootBarn)
   - [thing1](#thing1)
   - [thing2](#thing2)
- - [The Paper Store](#paper)
+- [The Paper Store](#paper)
 
 
 <div id="BootBarn"/>
