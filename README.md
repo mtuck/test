@@ -7,9 +7,9 @@
 <div id="BootBarn"/>
 ## Boot Barn
 <div id="thing1"/>
-  ### Thing 1
+### Thing 1
 <div id="thing2"/>
-   ### THing 2
+### THing 2
 <div id="paper"/>
 ## The Paper Store
 
