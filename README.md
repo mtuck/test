@@ -6,10 +6,18 @@
 
 <div id="BootBarn"/>
 ## Boot Barn
+
+
 <div id="thing1"/>
 ### Thing 1
+'''C#
+  Class{}
+'''
+
 <div id="thing2"/>
 ### THing 2
+
+
 <div id="paper"/>
 ## The Paper Store
 
