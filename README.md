@@ -14,11 +14,11 @@
   SELECT        ExtendedPrice, ProductName, UnitPrice, Quantity
 FROM            [Order Details Extended]
 ```
-
+---
 <div id="thing2"/>
 ### THing 2
 
-
+---
 <div id="paper"/>
 ## The Paper Store
 
