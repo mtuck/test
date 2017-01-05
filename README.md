@@ -10,9 +10,9 @@
 
 <div id="thing1"/>
 ### Thing 1
-'''
+```C#
   Class{}
-'''
+```
 
 <div id="thing2"/>
 ### THing 2
