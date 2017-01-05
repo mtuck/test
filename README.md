@@ -4,11 +4,12 @@
  - [The Paper Store](#paper)
 
 
-<div id="paragraph1"/>
-
+<div id="BootBarn"/>
+## Boot Barn
 <div id="thing1"/>
-
+  ### Thing 1
 <div id="thing2"/>
-
-<div id="Paragraph2"/>
+   ### THing 2
+<div id="paper"/>
+## The Paper Store
 
