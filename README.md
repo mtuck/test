@@ -1,6 +1,6 @@
 - [BootBarn](#BootBarn)
-  - [thing1](#thing1)
-  - [thing2](#thing2)
+  - [Thing1](#thing1)
+  - [Thing2](#thing2)
 - [The Paper Store](#paper)
 
 
@@ -16,7 +16,7 @@ FROM            [Order Details Extended]
 ```
 ---
 <div id="thing2"/>
-### THing 2
+### Thing 2
 
 ---
 <div id="paper"/>
