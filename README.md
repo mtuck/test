@@ -10,8 +10,9 @@
 
 <div id="thing1"/>
 ### Thing 1
-```C#
-  Class{}
+```sql
+  SELECT        ExtendedPrice, ProductName, UnitPrice, Quantity
+FROM            [Order Details Extended]
 ```
 
 <div id="thing2"/>
