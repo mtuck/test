@@ -1,9 +1,10 @@
+
 - [BootBarn](#BootBarn)
   - [Thing1](#thing1)
   - [Thing2](#thing2)
 - [The Paper Store](#paper)
   - [Distribution Details Missing](#disterr)
-
+  - [Distribution Details Missing](#distinsrt)
 
 <div id="BootBarn"/>
 ## Boot Barn
@@ -37,3 +38,9 @@ INNER JOIN TblPoWork W on P.WorkId=W.WorkId
 WHERE (W.WorkStatus=1 or W.WorkStatus=2) AND   D.DistDtlId IS NULL
 order by CheckIn
 ```
+---
+
+<div id="distinsrt"/>
+### Distribution Details Missing Insert
+
+---
