@@ -6,7 +6,9 @@
   - [Distribution Details Missing](#disterr)
   - [Distribution Details Missing Insert](#distinsrt)
   - [Distribution Did Not Freeze](#DistFreeze)
-  - [Delete Duplicate Lines]
+  - [Delete Duplicate Lines](#duplicate)
+  
+  
 <div id="BootBarn"/>
 ## BB
 
