@@ -6,6 +6,7 @@
   - [Delete Duplicate Lines](#duplicate)
   - [Payment Tech Exceptions](#payexception)
   - [Reserve Item Did Not Post](#reserveItem)
+  - [To Do Gets Deleted](#todoDel)
 
 <div id="paper"/>
 ## TPS
@@ -228,6 +229,25 @@ where distribution_number = '420776' and Sku_Id = '42411200005'
 --where distribution_number = '420776' and Sku_Id = '42411200005'
 ```
 
+<div id="todoDel"/>
+### To Do Gets Deleted
 
+If someone accidentally deletes a to do entry, we can make it reappear in the to do worklist.
+First make sure to archive the to do files on TPSWEB
+Then Query the table below, and filter the table based on what TPS sends you, if the send you a specific PO and PO Receipt
+filter the results on them, otherwise you will be including items that do not need to be reimported
+
+```sql
+select * from Tbl_NewPOR_ToDoEntryXML 
+where PONumber = 10046027
+```
+Then update the table's XML Status and XML Date as below, based on what you queried above
+Once the table is update they should see the new to do entry in about 30 minutes
+
+```sql
+UPDATE Tbl_NewPOR_ToDoEntryXML
+SET XMLStatus = 0, XMLDate = '1900-01-01 00:00:00'
+WHERE PONumber = 10046027
+```
 
 
