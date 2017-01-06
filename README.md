@@ -230,7 +230,7 @@ where distribution_number = '420776' and Sku_Id = '42411200005'
 ```
 ---
 <div id="todoDel"/>
-### ToDo Gets Deleted
+### TODO Gets Deleted
 
 If someone accidentally deletes a to do entry, we can make it reappear in the to do worklist.
 First make sure to archive the to do files on TPSWEB
