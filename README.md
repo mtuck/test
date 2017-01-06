@@ -157,7 +157,7 @@ Once the Paymentech Exceptions table gets update then the order will be captured
 If a reserve item did not post, take the distribution number and style code sent and run the below queries to check if the
 Finish Work and SFinish Work columns are 0 in the Reserve Dtl Table and the Finish work in the ReserveDistDtl. If they are, then update them to one. Then the next time TPS does a post the item will be included.
 
-'''sql
+```sql
 select * from TblReserveDtl 
 where distribution_number = '420776' and style_code = '1000411654'
 
