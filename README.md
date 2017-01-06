@@ -1,13 +1,13 @@
  
-- [BootBarn](#BootBarn)
+- [BB](#BootBarn)
   - [Thing1](#thing1)
   - [Thing2](#thing2)
-- [The Paper Store](#paper)
+- [TPS](#paper)
   - [Distribution Details Missing](#disterr)
   - [Distribution Details Missing Insert](#distinsrt)
 
 <div id="BootBarn"/>
-## Boot Barn
+## BB
 
 
 <div id="thing1"/>
@@ -22,7 +22,7 @@ FROM            [Order Details Extended]
 
 ---
 <div id="paper"/>
-## The Paper Store
+## TPS
 
 <div id="disterr"/>
 ### Distribution Details Missing
