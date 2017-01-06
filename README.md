@@ -1,10 +1,10 @@
-
+ 
 - [BootBarn](#BootBarn)
   - [Thing1](#thing1)
   - [Thing2](#thing2)
 - [The Paper Store](#paper)
   - [Distribution Details Missing](#disterr)
-  - [Distribution Details Missing](#distinsrt)
+  - [Distribution Details Missing Insert](#distinsrt)
 
 <div id="BootBarn"/>
 ## Boot Barn
