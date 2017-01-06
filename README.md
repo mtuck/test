@@ -6,7 +6,7 @@
   - [Distribution Details Missing](#disterr)
   - [Distribution Details Missing Insert](#distinsrt)
   - [Distribution Did Not Freeze](#DistFreeze)
-
+  - [Delete Duplicate Lines]
 <div id="BootBarn"/>
 ## BB
 
@@ -90,5 +90,38 @@ order by CheckIn
 	Group By Distribution_Number
 	for xml raw ('Distribution'), TYPE, Root('Distributions')
  ```
- 
+
+<div id="duplicate"/>
+### Delete Duplicate Lines
+
+This is for when there are duplicate lines that need to be deleted. Run the below query to get the Distribution and Sku Id
+for the duplicate lines
+
+```SQL
+SELECT COUNT(DistDtlId),D.Distribution_Number,D.Sku_Id,D.Location_Code --as reccnt
+FROM TblReserveDtl R
+LEFT JOIN TblReserveDistDtl D on R.RWDtlId=D.RwDtlId
+WHERE D.DocumentNo=''
+GROUP BY D.Distribution_Number,D.Sku_Id,D.Location_Code
+HAVING COUNT(DistDtlId) > 1
+ORDER BY D.Distribution_Number,D.Sku_Id
+```
+
+Once you have gotten the distribution number and sku id, plug them in below and run the below statement
+
+```SQL
+SELECT D.DistDtlId,D.Distribution_Number,D.Sku_Id,D.Location_Code,D.CQuantity,D.FinishWork,D.RWWorkId
+FROM TblReserveDtl R LEFT JOIN TblReserveDistDtl D on R.RWDtlId=D.RwDtlId
+WHERE D.Distribution_Number='422862' and D.Sku_Id IN ('38979200005')
+ORDER BY --D.Location_Code--
+D.Sku_Id,D.DistDtlId
+```
+Once you have the DistDtlId for the duplicated lines, plug them in below and run the statement. The issue will then be fixed
+
+```SQL
+DELETE FROM TblReserveDistDtl --SELECT * FROM TblReserveDistDtl 
+WHERE DistDtlId IN (7398578, 7398579
+```
+
+
 
