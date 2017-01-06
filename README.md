@@ -31,6 +31,47 @@ order by CheckIn
 <div id="distinsrt"/>
 ### Distribution Details Missing Insert
 
+```sql
+Declare @parPo_Receipt_Id varchar(20),
+@parNewWorkId varchar(10),         
+@parSku_Id varchar(20), 
+@parPo_Receipt varchar(20), 
+@parPoDtlId varchar(20)
+SET @parNewWorkId='44542'
+SET @parPo_Receipt_Id='241675'
+SET @parPo_Receipt='241674'
+SET @parSku_Id='43825600005'
+SET @parPoDtlId='150465' 
+--You can find these values in TblPoDtl and TblPoMain, make sure all match before running the queries below
+
+--If the distro has units going to the store then run the below TSQL statement, if it does not have units going to stores
+--you comment out the TSQL    
+DECLARE @TSQL varchar(8000), 
+@VAR char(2)                       
+ Set  @TSQL = 'Insert Into TblDistDtl(distribution_number, distribution_status, po_receipt_id, PoReceipt, upc_id, 
+ sku_id, location_code,                                               
+ location_short_name, PoDtlId, quantity, WorkId)        
+ Select * From OpenQuery(EPICORSQL, ''        
+ SELECT DISTINCT D.distribution_number, D.distribution_status, ''''' + @parPo_Receipt_Id + ''''',             
+ PR.document_no,me_psl_01.dbo.view_TPS_UPC_latest_activity_date.upc_number, DD.sku_id, L.location_code,             
+ L.location_short_name, ''''' + @parPoDtlId + ''''', DD.quantity, '''''  + @parNewWorkId +  ''''''        
+ Set @TSQL = @TSQL + ' FROM  me_psl_01.dbo.distribution AS D                              
+ INNER JOIN me_psl_01.dbo.po AS P ON D.po_id = P.po_id                        
+ INNER JOIN me_psl_01.dbo.po_detail PD on P.po_id=D.po_id                       
+ INNER JOIN me_psl_01.dbo.dist_line AS DL ON D.distribution_id = DL.distribution_id AND PD.po_line_id=DL.po_line_id                       
+ INNER JOIN me_psl_01.dbo.dist_detail AS DD ON D.distribution_id = DD.distribution_id                                            
+ AND (PD.pack_id=DD.pack_id OR PD.sku_id = DD.sku_id)                       
+ INNER JOIN me_psl_01.dbo.po_receipt PR on P.po_id=PR.po_id AND DL.po_receipt_id=PR.po_receipt_id                        
+ INNER JOIN  me_psl_01.dbo.location AS L ON DD.location_id = L.location_id                        
+ LEFT OUTER JOIN me_psl_01.dbo.view_TPS_UPC_latest_activity_date ON PD.sku_id = me_psl_01.dbo.view_TPS_UPC_latest_activity_date.sku_id        
+ WHERE     
+ (D.location_id = 30) AND (L.location_id NOT IN (1, 8, 10, 27)) And D.distribution_status in (6, 7) and 
+ D.document_source NOT IN (3,7,8)  And DD.quantity <>0                   
+ AND PR.document_no = ''''' + @parPo_Receipt + ''''' And PD.sku_id=''''' + @parSku_Id + ''''''')'        
+ print @TSQL        
+ EXEC (@TSQL)    
+```
+
 ---
 
 <div id="DistFreeze"/>
