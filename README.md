@@ -165,7 +165,7 @@ WHERE DistDtlId IN (7398578, 7398579)
 ---
 
 <div id='payexception'/>
-### Payment Tech Exeptions
+### Payment Tech Exceptions
 
 
 ```sql
