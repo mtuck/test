@@ -1,29 +1,11 @@
  
-- [BB](#BootBarn)
-  - [Thing1](#thing1)
-  - [Thing2](#thing2)
 - [TPS](#paper)
   - [Distribution Details Missing](#disterr)
   - [Distribution Details Missing Insert](#distinsrt)
   - [Distribution Did Not Freeze](#DistFreeze)
   - [Delete Duplicate Lines](#duplicate)
-  
-  
-<div id="BootBarn"/>
-## BB
 
 
-<div id="thing1"/>
-### Thing 1
-```sql
-  SELECT        ExtendedPrice, ProductName, UnitPrice, Quantity
-FROM            [Order Details Extended]
-```
----
-<div id="thing2"/>
-### Thing 2
-
----
 <div id="paper"/>
 ## TPS
 
@@ -53,13 +35,13 @@ order by CheckIn
 <div id="DistFreeze"/>
 ### Distro Did Not Freeze
 
---This is for when a distro did not 'Freeze' in Aptos. Change the distro no and work id with the appropriate ones
+This is for when a distro did not 'Freeze' in Aptos. Change the distro no and work id with the appropriate ones
 
 
---Run the statement, and then copy and paste the XML created to the MSMQ site __INSERT URL__
+Run the statement, and then copy and paste the XML created to the MSMQ site __INSERT URL__
 
 
---Use the Business Entity 'Distribution' 
+Use the Business Entity 'Distribution' 
 
 
 ```sql
