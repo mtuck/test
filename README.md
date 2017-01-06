@@ -4,7 +4,7 @@
   - [Distribution Details Missing Insert](#distinsrt)
   - [Distribution Did Not Freeze](#DistFreeze)
   - [Delete Duplicate Lines](#duplicate)
-
+  - [Payment Tech Exceptions](#payexception)
 
 <div id="paper"/>
 ## TPS
@@ -108,5 +108,43 @@ DELETE FROM TblReserveDistDtl --SELECT * FROM TblReserveDistDtl
 WHERE DistDtlId IN (7398578, 7398579)
 ```
 
+<div id='payexception'/>
+### Payment Tech Exeptions
+
+
+```sql
+SELECT S.CustomerOrderId,S.OrderAmount,S.ShipCost,S.TaxAmount,L.[LineNo],L.ItemDescription,L.SkuId,L.ExtUnitPrice,L.ProdTaxAmount,
+     ISNULL(D.DiscountAmount,0) as DiscAmt,((L.ExtUnitPrice+L.ProdTaxAmount)-ISNULL(D.DiscountAmount,0)) as TotalItemPrice,
+     L.ShippedDate, S.PaymentechCapture,S.PaymentechProcessStatusCode,S.PaymentechResponseCode,S.PaymentechOrderId,S.PaymentechTransId
+FROM ShippedOrders S
+INNER JOIN ShippedOrderLines L on S.CustomerOrderId=L.CustomerOrderId
+LEFT JOIN OrderDiscounts D on L.CustomerOrderId=D.CustomerOrderId and L.[LineNo]=D.[LineNo]
+--Filter out any lines that have been cancelled
+WHERE S.CustomerOrderId = 159237 and L.[Status]<>99
+```
+
+
+ If the issue is a discount issue, type in the amount the discount needs to be updated to, the order no, and the line(s) the new discount should be applied to. If no other issues, update the Paymentech Exceptions
+ 
+  ```SQL
+UPDATE OrderDiscounts set DiscountAmount=0.59 where CustomerOrderId=158229 and [LineNo]IN (1,2,3)
+  ```
+Once all issues have been resolved, fill in your username, what the issue was (discount or tax), and the order no
+
+
+Once the Paymentech Exceptions table gets update then the order will be captured on the next job run  
+
+```SQL 
+ UPDATE PaymentechExceptions Set ResolutionDateTime=GETDATE(),ResolutionUser='THEPAPERSTORE\c-leah.bernas',ResolutionNotes='Discount Issue'
+ where OrderNo=158229
+```
+
+ If the order has discounts applied to it, but the order discounts table is blank, you will have to insert the discount
+ records manually. Fill in the OrderNo, LineNo, OrderDiscountAmount, and the Discount Code
+ 
+ ```SQL
+  INSERT INTO OrderDiscounts VALUES (133232, 1, 3.99, 'MAY_YC_SOM')
+  ```
+  
 
 
