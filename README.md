@@ -54,7 +54,7 @@ order by CheckIn
 --This is for when a distro did not 'Freeze' in Aptos. Change the distro no and work id with the appropriate ones
 
 
---Run the statement, and then copy and paste the XML created to the MSMQ site http://paperw.thepaperstore.com/msmq.aspx
+--Run the statement, and then copy and paste the XML created to the MSMQ site __INSERT URL__
 
 
 --Use the Business Entity 'Distribution' 
