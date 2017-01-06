@@ -72,6 +72,18 @@ DECLARE @TSQL varchar(8000),
  EXEC (@TSQL)    
 ```
 
+If the distro as units going to Reserve (Resere in the TblPoDtl) then you need to run the below statement. Otherwise you can comment this part out     
+```SQL
+ Insert Into TblDistDtl (Distribution_Number, Distribution_Status, Po_Receipt_Id, Upc_Id,                
+ Sku_Id, Quantity, Location_Code, Location_Short_Name, CQuantity,               
+ WorkId, PoReceipt, RsvChk, PoDtlId )        
+ select Distribution_Number, '7', Po_Receipt_Id, UPC,                
+ Sku_Id, ResereUnits, '0099', 'Reserve' , ResereUnits,               
+ WorkId, @parPo_Receipt, 'True', @parPoDtlId         
+ from TblPoDtl Where WorkId=@parNewWorkId And Po_Receipt_Id=@parPo_Receipt_Id             
+ And Sku_Id = @parSku_Id
+```
+
 ---
 
 <div id="DistFreeze"/>
@@ -190,7 +202,7 @@ Once the Paymentech Exceptions table gets update then the order will be captured
   INSERT INTO OrderDiscounts VALUES (133232, 1, 3.99, 'MAY_YC_SOM')
   ```
   
-
+---
 <div id="reserveItem"/>
 ### Reserve Item Did Not Post
 
