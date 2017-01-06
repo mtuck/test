@@ -122,7 +122,7 @@ Once you have the DistDtlId for the duplicated lines, plug them in below and run
 
 ```SQL
 DELETE FROM TblReserveDistDtl --SELECT * FROM TblReserveDistDtl 
-WHERE DistDtlId IN (7398578, 7398579
+WHERE DistDtlId IN (7398578, 7398579)
 ```
 
 
