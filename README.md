@@ -5,6 +5,7 @@
   - [Distribution Did Not Freeze](#DistFreeze)
   - [Delete Duplicate Lines](#duplicate)
   - [Payment Tech Exceptions](#payexception)
+  - [Reserve Item Did Not Post](#reserveItem)
 
 <div id="paper"/>
 ## TPS
@@ -148,5 +149,32 @@ Once the Paymentech Exceptions table gets update then the order will be captured
   INSERT INTO OrderDiscounts VALUES (133232, 1, 3.99, 'MAY_YC_SOM')
   ```
   
+
+<div id="reserveItem"/>
+### Reserve Item Did Not Post
+
+
+If a reserve item did not post, take the distribution number and style code sent and run the below queries to check if the
+Finish Work and SFinish Work columns are 0 in the Reserve Dtl Table and the Finish work in the ReserveDistDtl. If they are, then update them to one. Then the next time TPS does a post the item will be included.
+
+'''sql
+select * from TblReserveDtl 
+where distribution_number = '420776' and style_code = '1000411654'
+
+select * from TblReserveDistDtl 
+where distribution_number = '420776' and Sku_Id = '42411200005'
+
+
+--update TblReserveDtl
+--set FinishWork = 1, SFinishWork = 1
+--where distribution_number = '420776' and style_code = '1000411654'
+
+
+--update TblReserveDistDtl 
+--set FinishWork = 1
+--where distribution_number = '420776' and Sku_Id = '42411200005'
+```
+
+
 
 
