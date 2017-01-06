@@ -92,6 +92,7 @@ order by CheckIn
 	Group By Distribution_Number
 	for xml raw ('Distribution'), TYPE, Root('Distributions')
  ```
+---
 
 <div id="duplicate"/>
 ### Delete Duplicate Lines
