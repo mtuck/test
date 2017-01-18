@@ -205,9 +205,9 @@ Once the Paymentech Exceptions table gets update then the order will be captured
  If the order has discounts applied to it, but the order discounts table is blank, you will have to insert the discount
  records manually. Fill in the OrderNo, LineNo, OrderDiscountAmount, and the Discount Code
  
- ```sql
+```sql
   INSERT INTO OrderDiscounts VALUES (133232, 1, 3.99, 'MAY_YC_SOM')
-  ```
+```
   
 ---
 
