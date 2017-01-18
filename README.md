@@ -189,9 +189,9 @@ WHERE S.CustomerOrderId = 159237 and L.[Status]<>99
 
  If the issue is a discount issue, type in the amount the discount needs to be updated to, the order no, and the line(s) the new discount should be applied to. If no other issues, update the Paymentech Exceptions
  
-  ```sql
+```sql
 UPDATE OrderDiscounts set DiscountAmount=0.59 where CustomerOrderId=158229 and [LineNo]IN (1,2,3)
-  ```
+```
 Once all issues have been resolved, fill in your username, what the issue was (discount or tax), and the order no
 
 
