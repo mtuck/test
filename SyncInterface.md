@@ -1,12 +1,12 @@
-#### DBSync class
+#### Class DBSync
 
-<table>
-  <tr>
-    <th>
-    SetConnectionString(string ConnectionString)
-    </th>
-  </tr>
-  
-  <tr><td>
-#### Summary Sets connection string for access to BBSQL for interaction with stored procedures to sync Aptos & HJ</td><tr>
+<table><tr>
+<th> Fields </th>
+</tr> 
+<tr><td> String ConnectionString</td></tr>
+</table>
+
+Methods
+<table><tr><th>Method Name</th> <th>Method Summary</th></tr>
+<tr> </tr>
 </table>
