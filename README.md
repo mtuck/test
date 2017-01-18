@@ -1,7 +1,7 @@
  
 - [TPS](#paper)
 
-	- [page3](/page2.html)
+	- [page3](./page2.html)
   - [Distribution Details Missing](#disterr)
   - [Distribution Details Missing Insert](#distinsrt)
   - [Distribution Did Not Freeze](#DistFreeze)
