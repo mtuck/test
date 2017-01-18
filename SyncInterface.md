@@ -3,7 +3,7 @@
 <table><tr>
 <th> Fields </th>
 </tr> 
-<tr><td> <text>```C# String ConnectionString```</text></td></tr>
+<tr><td> <code>C# String ConnectionString</code></td></tr>
 </table>
 
 Methods
