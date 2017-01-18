@@ -1,6 +1,6 @@
 #### Class DBSync
 
-<table><tr>
+<table style="background-color:blue;"><tr>
 <th> Fields </th>
 </tr> 
 <tr><td> <pre lang="csharp">string ConnectionString</pre></td></tr>
