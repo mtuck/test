@@ -130,7 +130,7 @@ Use the Business Entity 'Distribution'
 	Where WorkId=@parWorkId And Distribution_Number=@parDistroNo 
 	Group By Distribution_Number
 	for xml raw ('Distribution'), TYPE, Root('Distributions')
- ```
+```
 ---
 
 <div id="duplicate"/>
