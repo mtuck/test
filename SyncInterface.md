@@ -3,7 +3,7 @@
 <table><tr>
 <th> Fields </th>
 </tr> 
-<tr><td> <pre lang="csharp">C# String ConnectionString</pre></td></tr>
+<tr><td> <pre lang="csharp">int ConnectionString</pre></td></tr>
 </table>
 
 Methods
