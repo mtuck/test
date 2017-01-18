@@ -78,7 +78,7 @@ DECLARE @TSQL varchar(8000),
 
 If the distro as units going to Reserve (Resere in the TblPoDtl) then you need to run the below statement. Otherwise you can comment this part out     
 
-```SQL
+```sql
  Insert Into TblDistDtl (Distribution_Number, Distribution_Status, Po_Receipt_Id, Upc_Id,                
  Sku_Id, Quantity, Location_Code, Location_Short_Name, CQuantity,               
  WorkId, PoReceipt, RsvChk, PoDtlId )        
@@ -142,7 +142,7 @@ Use the Business Entity 'Distribution'
 This is for when there are duplicate lines that need to be deleted. Run the below query to get the Distribution and Sku Id
 for the duplicate lines
 
-```SQL
+```sql
 SELECT COUNT(DistDtlId),D.Distribution_Number,D.Sku_Id,D.Location_Code --as reccnt
 FROM TblReserveDtl R
 LEFT JOIN TblReserveDistDtl D on R.RWDtlId=D.RwDtlId
@@ -154,7 +154,7 @@ ORDER BY D.Distribution_Number,D.Sku_Id
 
 Once you have gotten the distribution number and sku id, plug them in below and run the below statement
 
-```SQL
+```sql
 SELECT D.DistDtlId,D.Distribution_Number,D.Sku_Id,D.Location_Code,D.CQuantity,D.FinishWork,D.RWWorkId
 FROM TblReserveDtl R LEFT JOIN TblReserveDistDtl D on R.RWDtlId=D.RwDtlId
 WHERE D.Distribution_Number='422862' and D.Sku_Id IN ('38979200005')
@@ -163,7 +163,7 @@ D.Sku_Id,D.DistDtlId
 ```
 Once you have the DistDtlId for the duplicated lines, plug them in below and run the statement. The issue will then be fixed
 
-```SQL
+```sql
 DELETE FROM TblReserveDistDtl --SELECT * FROM TblReserveDistDtl 
 WHERE DistDtlId IN (7398578, 7398579)
 ```
@@ -189,7 +189,7 @@ WHERE S.CustomerOrderId = 159237 and L.[Status]<>99
 
  If the issue is a discount issue, type in the amount the discount needs to be updated to, the order no, and the line(s) the new discount should be applied to. If no other issues, update the Paymentech Exceptions
  
-  ```SQL
+  ```sql
 UPDATE OrderDiscounts set DiscountAmount=0.59 where CustomerOrderId=158229 and [LineNo]IN (1,2,3)
   ```
 Once all issues have been resolved, fill in your username, what the issue was (discount or tax), and the order no
@@ -197,7 +197,7 @@ Once all issues have been resolved, fill in your username, what the issue was (d
 
 Once the Paymentech Exceptions table gets update then the order will be captured on the next job run  
 
-```SQL 
+```sql
  UPDATE PaymentechExceptions Set ResolutionDateTime=GETDATE(),ResolutionUser='THEPAPERSTORE\c-leah.bernas',ResolutionNotes='Discount Issue'
  where OrderNo=158229
 ```
@@ -205,7 +205,7 @@ Once the Paymentech Exceptions table gets update then the order will be captured
  If the order has discounts applied to it, but the order discounts table is blank, you will have to insert the discount
  records manually. Fill in the OrderNo, LineNo, OrderDiscountAmount, and the Discount Code
  
- ```SQL
+ ```sql
   INSERT INTO OrderDiscounts VALUES (133232, 1, 3.99, 'MAY_YC_SOM')
   ```
   
