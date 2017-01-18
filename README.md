@@ -17,6 +17,7 @@
 This query finds all distros that have been logged into to work on that did not have the distribution details imported
 
 **Check that the date is current, there are some older ones from 2014 and 2015**
+
 ```sql
 SELECT W.WorkId,W.CheckIn,P.PoDtlId,P.Distribution_Number,   
 P.Po_Receipt_Id,P.Sku_Id,P.UpdateChk,P.FinishWork,   
@@ -74,6 +75,7 @@ DECLARE @TSQL varchar(8000),
 ```
 
 If the distro as units going to Reserve (Resere in the TblPoDtl) then you need to run the below statement. Otherwise you can comment this part out     
+
 ```SQL
  Insert Into TblDistDtl (Distribution_Number, Distribution_Status, Po_Receipt_Id, Upc_Id,                
  Sku_Id, Quantity, Location_Code, Location_Short_Name, CQuantity,               
@@ -132,6 +134,7 @@ Use the Business Entity 'Distribution'
 ---
 
 <div id="duplicate"/>
+
 ### Delete Duplicate Lines
 
 This is for when there are duplicate lines that need to be deleted. Run the below query to get the Distribution and Sku Id
@@ -166,6 +169,7 @@ WHERE DistDtlId IN (7398578, 7398579)
 ---
 
 <div id='payexception'/>
+
 ### Payment Tech Exceptions
 
 
@@ -204,7 +208,9 @@ Once the Paymentech Exceptions table gets update then the order will be captured
   ```
   
 ---
+
 <div id="reserveItem"/>
+
 ### Reserve Item Did Not Post
 
 
@@ -230,6 +236,7 @@ where distribution_number = '420776' and Sku_Id = '42411200005'
 ```
 ---
 <div id="todoDel"/>
+
 ### TODO Gets Deleted
 
 If someone accidentally deletes a to do entry, we can make it reappear in the to do worklist.
