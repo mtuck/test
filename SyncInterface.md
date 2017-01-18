@@ -3,9 +3,10 @@
 <table>
   <tr>
     <th>
-    SetConnectionString(string s)
+    SetConnectionString(string ConnectionString)
     </th>
   </tr>
   
-  <tr><td>Sets connection string for access to BBSQL for interaction with stored procedures to sync Aptos & HJ<td><tr>
+  <tr><td>
+#### Summary Sets connection string for access to BBSQL for interaction with stored procedures to sync Aptos & HJ</td><tr>
 </table>
